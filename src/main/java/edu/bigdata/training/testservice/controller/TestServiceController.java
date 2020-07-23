@@ -1,4 +1,4 @@
-package main.java.edu.bigdata.training.testservice.controller;
+package edu.bigdata.training.testservice.controller;
 
 import edu.bigdata.training.testservice.controller.model.Person;
 import edu.bigdata.training.testservice.model.PersonEntity;

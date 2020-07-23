@@ -1,4 +1,4 @@
-package main.java.edu.bigdata.training.testservice.model;
+package edu.bigdata.training.testservice.model;
 
 import java.util.Objects;
 import java.util.UUID;

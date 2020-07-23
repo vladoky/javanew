@@ -1,4 +1,4 @@
-package main.java.edu.bigdata.training.testservice;
+package edu.bigdata.training.testservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

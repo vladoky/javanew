@@ -1,4 +1,4 @@
-package main.java.edu.bigdata.training.testservice.config;
+package edu.bigdata.training.testservice.config;
 
 import edu.bigdata.training.testservice.model.PersonEntity;
 import org.apache.ignite.Ignite;

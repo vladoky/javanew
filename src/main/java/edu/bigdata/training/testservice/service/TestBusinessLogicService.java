@@ -1,4 +1,4 @@
-package main.java.edu.bigdata.training.testservice.service;
+package edu.bigdata.training.testservice.service;
 
 import edu.bigdata.training.testservice.controller.model.Person;
 import edu.bigdata.training.testservice.dao.TestServiceRepository;

@@ -32,13 +32,13 @@ public class TestServiceController {
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
-    @DeleteMapping(path = {"/del/{id}"})
+    @DeleteMapping(path = {"/{id}"})
     public void delPerson(@PathVariable String id) {
         testBusinessLogicService.processDel(id);
     }
 
 
-    @PutMapping(path = {"/put/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> updPerson(@PathVariable String id, @RequestBody Person person) {
         PersonEntity personEntity = testBusinessLogicService.processUpd(id, person);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);

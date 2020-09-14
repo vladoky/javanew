@@ -20,7 +20,7 @@ public class TestServiceController {
         this.testBusinessLogicService = testBusinessLogicService;
     }
 
-    @PostMapping(path = {"/create"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = {"/"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> createPerson(@RequestBody Person person) {
         PersonEntity personEntity = testBusinessLogicService.processCreate(person);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);

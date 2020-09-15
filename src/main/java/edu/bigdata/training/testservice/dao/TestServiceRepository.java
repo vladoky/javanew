@@ -28,10 +28,6 @@ public class TestServiceRepository {
         return ignite.getOrCreateCache(personCacheConfiguration).get(id);
     }
 
-    public void delete(UUID id) { ignite.getOrCreateCache(personCacheConfiguration).remove(id);}
-
-    public PersonEntity update(PersonEntity personEntity) { return ignite.getOrCreateCache(personCacheConfiguration).getAndReplace(personEntity.getId(), personEntity);}
-
     public List<PersonEntity> getAll(){
         Iterable<Cache.Entry<UUID,PersonEntity>> iterable = () -> ignite.getOrCreateCache(personCacheConfiguration).iterator();
 

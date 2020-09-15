@@ -20,31 +20,19 @@ public class TestServiceController {
         this.testBusinessLogicService = testBusinessLogicService;
     }
 
-    @PostMapping(path = {"/"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = {"/create"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> createPerson(@RequestBody Person person) {
         PersonEntity personEntity = testBusinessLogicService.processCreate(person);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
-    @GetMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = {"/get/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> getPerson(@PathVariable String id) {
         PersonEntity personEntity = testBusinessLogicService.processGet(id);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
-    @DeleteMapping(path = {"/{id}"})
-    public void delPerson(@PathVariable String id) {
-        testBusinessLogicService.processDel(id);
-    }
-
-
-    @PutMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PersonEntity> updPerson(@PathVariable String id, @RequestBody Person person) {
-        PersonEntity personEntity = testBusinessLogicService.processUpd(id, person);
-        return new ResponseEntity<>(personEntity, HttpStatus.OK);
-    }
-
-    @GetMapping(path = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = {"/get/all"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PersonEntity>> getAll() {
         List<PersonEntity> personEntities = testBusinessLogicService.processGetAll();
         return new ResponseEntity<>(personEntities, HttpStatus.OK);

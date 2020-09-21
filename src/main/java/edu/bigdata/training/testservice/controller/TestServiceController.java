@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("person")
+@RequestMapping("/person")
 public class TestServiceController {
 
     private TestBusinessLogicService testBusinessLogicService;
@@ -20,21 +19,32 @@ public class TestServiceController {
         this.testBusinessLogicService = testBusinessLogicService;
     }
 
-    @PostMapping(path = {"/create"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = {"/"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> createPerson(@RequestBody Person person) {
         PersonEntity personEntity = testBusinessLogicService.processCreate(person);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
-    @GetMapping(path = {"/get/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<PersonEntity> getPerson(@PathVariable String id) {
         PersonEntity personEntity = testBusinessLogicService.processGet(id);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
-    @GetMapping(path = {"/get/all"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = {"/"}, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<PersonEntity>> getAll() {
         List<PersonEntity> personEntities = testBusinessLogicService.processGetAll();
         return new ResponseEntity<>(personEntities, HttpStatus.OK);
+    }
+
+    @PutMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<PersonEntity> updatePerson(@PathVariable String id, @RequestBody Person person) {
+        PersonEntity personEntity = testBusinessLogicService.processUpdate(id, person);
+        return new ResponseEntity<>(personEntity, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePerson(@PathVariable String id) {
+        testBusinessLogicService.processDelete(id);
     }
 }

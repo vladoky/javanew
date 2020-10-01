@@ -83,6 +83,8 @@ public class TestServiceControllerTest {
 
         PersonEntity personEntity= entityUtils.getPersonEntity(responseObject.get("id"));
         Assert.assertEquals("name", personEntity.getName());
+        PersonEntity personEntity1 = entityUtils.getPersonEntity(personEntity.getId().toString());
+        Assert.assertEquals(null, personEntity1);
 
     }
 
@@ -100,6 +102,8 @@ public class TestServiceControllerTest {
         mvc.perform(get("/person/").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(expectedJson));
+        PersonEntity personEntity3 = entityUtils.getPersonEntity(personEntity1.getId().toString());
+        Assert.assertEquals(null, personEntity3);
 
     }
 
@@ -121,6 +125,9 @@ public class TestServiceControllerTest {
         mvc.perform(get("/person/" + personEntity1.getId()).accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json(expectedJson));
+
+        PersonEntity personEntity2 = entityUtils.getPersonEntity(personEntity1.getId().toString());
+        Assert.assertEquals(null, personEntity2);
 
     }
 }

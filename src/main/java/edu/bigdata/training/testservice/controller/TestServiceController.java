@@ -20,13 +20,15 @@ public class TestServiceController {
     }
 
     @PostMapping(path = {"/"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PersonEntity> createPerson(@RequestBody Person person) {
+    public ResponseEntity<PersonEntity> createPerson(@RequestBody Person person)
+    {
         PersonEntity personEntity = testBusinessLogicService.processCreate(person);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }
 
     @GetMapping(path = {"/{id}"}, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<PersonEntity> getPerson(@PathVariable String id) {
+    public ResponseEntity<PersonEntity> getPerson(@PathVariable String id)
+    {
         PersonEntity personEntity = testBusinessLogicService.processGet(id);
         return new ResponseEntity<>(personEntity, HttpStatus.OK);
     }

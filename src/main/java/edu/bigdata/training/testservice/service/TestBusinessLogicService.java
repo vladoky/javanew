@@ -28,13 +28,4 @@ public class TestBusinessLogicService {
     public List<PersonEntity> processGetAll(){
         return testServiceRepository.getAll();
     }
-    public PersonEntity processUpdate(String id, Person person){
-        PersonEntity personEntity = new PersonEntity(person.getName());
-        personEntity.setId(UUID.fromString(id));
-        return testServiceRepository.update(personEntity);
-    }
-
-    public void processDelete(String id) {
-        testServiceRepository.delete(UUID.fromString(id));
-    }
 }

@@ -38,13 +38,4 @@ public class TestServiceRepository {
 
         return persons;
     }
-
-    public void delete(UUID id) {
-        ignite.getOrCreateCache(personCacheConfiguration).remove(id);
-    }
-
-    public PersonEntity update(PersonEntity personEntity) {
-        return ignite.getOrCreateCache(personCacheConfiguration).getAndReplace(personEntity.getId(), personEntity);
-    }
-
 }

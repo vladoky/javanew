@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: test-service-container
-          image: "docker pull vladokyokydoky/testservice:ssl"
+          image: "vladokyokydoky/testservice:ssl"
           imagePullPolicy: Always
           env:
             - name: SSL_KEYSTORE_PWD

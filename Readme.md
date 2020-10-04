@@ -4,7 +4,7 @@
 
 собрать и опубликовать docker-образ 
 docker build .
-docker tag <image hash> exit
+docker tag <image hash>
 docker login
 docker push javapipe2020/testservice:ssl
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 mvn clean
 mvn package
-docker build --tag "$1" .
-docker login -u="$2" -p="$3"
-docker push "$1"
+docker build --tag "vladokyokydoky/testservice:test" .
+docker login -u="vladokyokydoky" -p="jcnruad3"
+docker push "vladokyokydoky/testservice:test"
 
 kubectl apply -f test-service-configmap.yaml
 cd src/main/resources/keystore/local/
